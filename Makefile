@@ -6,7 +6,7 @@ OBJECT_PATH     := ./src/obj
 PROGRAM_NAME    := clang-complete
 LLVM_CONFIG     := llvm-config
 
-LDLIBS := $(shell $(LLVM_CONFIG) --ldflags) -lclang
+LDLIBS := $(shell $(LLVM_CONFIG) --ldflags) -lclang -Wl,-rpath,$(shell $(LLVM_CONFIG) --libdir)
 CFLAGS += -std=c99 $(shell $(LLVM_CONFIG) --cflags) -Wall -Wextra -pedantic -O3
 
 
